@@ -6,7 +6,7 @@ _kiara_zip () {
     then
         echo "https://github.com/${GIT_REPO}/archive/master.zip"
     else
-        echo "aHR0cHM6Ly9naXRodWIuY29tLzg4OGp1bGlib3QvS2lhcmFVc2VyQm90L2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tLzg4OGp1bGlib3QvS2lhcmFVc2VyQm90L2FyY2hpdmUvbWFzdGVyLnppcA=" | base64 -d
     fi
 }
 
