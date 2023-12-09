@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 _kiara_zip () {
     if [[ $GIT_REPO ]]
     then
@@ -25,10 +24,10 @@ _starter () {
     echo "••• DOWNLOADING KIARABOT •••"
     mkdir -p downloads  # Create a directory for downloads
     wget -q $(_kiara_zip) -O "downloads/$kiarapath"
-    cd downloads || exit 1  # Change to the downloads directory
+    cd downloads  # Change to the downloads directory
     unzip -qq "$kiarapath"
     rm -rf "$kiarapath"
-    cd $KIARAPATH || exit 1
+    cd $(ls -d */) || exit 1  # Change to the extracted directory
     python3 ../updater.py ../requirements.txt requirements.txt
     echo "••• STARTING KIARABOT •••"
     _library
