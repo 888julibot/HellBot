@@ -22,12 +22,13 @@ _library () {
 _starter () {
     local kiarapath
     kiarapath="Plugins.zip"
-    echo "••• DOWNLOADING HELLBOT •••"
-    wget -q $(_kiara_zip) -O "$kiaralpath"
-    KIARAPATH=$(zipinfo -1 "$kiarapath" | grep -v "/.");
+    echo "••• DOWNLOADING KIARABOT •••"
+    mkdir -p downloads  # Create a directory for downloads
+    wget -q $(_kiara_zip) -O "downloads/$kiarapath"
+    cd downloads || exit 1  # Change to the downloads directory
     unzip -qq "$kiarapath"
     rm -rf "$kiarapath"
-    cd $KIARAPATH
+    cd $KIARAPATH || exit 1
     python3 ../updater.py ../requirements.txt requirements.txt
     echo "••• STARTING KIARABOT •••"
     _library
